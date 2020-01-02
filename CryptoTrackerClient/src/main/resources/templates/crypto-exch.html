@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	function renderRates(data, type, full) {
+		var markup = "<ul>";
+		$.each(data, function(index, email) {
+			markup += "<li>" + crypto.asset_id_quote + "</li>";
+		});
+		markup += "</ul>";
+		return markup;
+	}
+	/*]]>*/
+</script>
+<body>
+
+
+	<div th:replace="common/header :: navbar" />
+		
+<body>
+			<div class="alert alert-warning" role="alert">
+		<h2 class="my-5">
+			CryptoCurrency Name:
+			<td th:text="${crypto.asset_id_base}"></td>
+		</h2>
+	</div>
+	<div class="container">
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					 <th>Time</th>
+        			 <th>Exchange Currency</th>
+        			 <th>Rate</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="rate : ${crypto.rates}">
+        		<td th:text="${rate.time}"></td>
+        		<td th:text="${rate.asset_id_quote}"></td>
+        		<td th:text="${rate.rate}"></td>
+      		</tr>		
+			</tbody>
+		</table>
+	</div>
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+
+
+</html>

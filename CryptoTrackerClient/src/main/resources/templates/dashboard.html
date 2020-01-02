@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" />
+	<div class="container">
+		<div class="row" style="margin-bottom: -100px;">
+			<div class="col-xs-8">
+				<h2 class="section-headline"></h2>
+				<div class="alert alert-warning" role="alert">
+					<h2>
+						Hello <b>[[${#httpServletRequest.remoteUser}]]!</b>
+					</h2>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row" style="margin-top: 60px;">
+			<p>
+				<b>Click on the tab of which site would you access for the
+					CryptoCurrency info.</b>
+			</p>
+			<div class="col-xs-9 col-xs-offset-3">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li th:classappend="${coinmarket}? 'active'"><a href="#tab-1"
+						data-toggle="tab"><span style="color: red;">Coinmarket
+						</span></a></li>
+					<li th:classappend="${coinPaprika}? 'active'"><a
+						href="#tab-2" data-toggle="tab"><span style="color: red;">Coin Paprika
+						</span></a></li>
+					<li th:classappend="${coinAPI}? 'active'"><a
+					href="#tab-3" data-toggle="tab"><span style="color: red;">Coin API exchanges
+					</span></a></li>
+					<li th:classappend="${blockFull}? 'active'"><a
+					href="#tab-4" data-toggle="tab"><span style="color: red;">List of all pairs
+					</span></a></li>
+					<li th:classappend="${blockPair}? 'active'"><a
+					href="#tab-5" data-toggle="tab"><span style="color: red;">List of a pair
+					</span></a></li>
+				</ul>
+
+				<!-- Tab panels -->
+				<div class="tab-content">
+
+					<!-- create new user pane -->
+					<div class="tab-pane fade" id="tab-1"
+						th:classappend="${coinmarket}? 'in active'">
+						<div class="panel-group">
+							<div class="panel panel-aligned" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+									<table
+										class="table100 ver1 m-b-110 table-responsive-md table-striped text-center">
+										<tr>
+											<th class="text-center">CryptoCurrency</th>
+						
+										</tr>
+										<tr>
+											<td class="pt-3-half">Bitcoin</td>
+											<td><a href="http://localhost:8086/crypto/bitcoin"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Ripple</td>
+											<td><a href="http://localhost:8086/crypto/ripple"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Ethereum</td>
+											<td><a href="http://localhost:8086/crypto/ethereum"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Tether</td>
+											<td><a href="http://localhost:8086/crypto/tether"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Eos</td>
+											<td><a href="http://localhost:8086/crypto/eos"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+									</table>
+									<p style="color: #828282">Choose name of the CryptoCurrency
+										which you want to check.</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- create new user pane -->
+					<div class="tab-pane fade" id="tab-2"
+						th:classappend="${coinPaprika}? 'in active'">
+						<div class="panel-group">
+							<div class="panel panel-aligned" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+									<table
+										class="table100 ver1 m-b-110 table-responsive-md table-striped text-center">
+										<tr>
+											<th class="text-center">CryptoCurrency</th>
+						
+										</tr>
+										<tr>
+											<td class="pt-3-half">Bitcoin</td>
+											<td><a href="http://localhost:8086/paprika/btc-bitcoin"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Ripple</td>
+											<td><a href="http://localhost:8086/paprika/xrp-xrp"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Ethereum</td>
+											<td><a href="http://localhost:8086/paprika/etc-ethereum"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Tether</td>
+											<td><a href="http://localhost:8086/paprika/usdt-tether"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Eos</td>
+											<td><a href="http://localhost:8086/paprika/eos-eos"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+									</table>
+									<p style="color: #828282">Choose name of the CryptoCurrency
+										which you want to check.</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+
+						<!-- create new user pane -->
+					<div class="tab-pane fade" id="tab-3"
+						th:classappend="${coinAPI}? 'in active'">
+						<div class="panel-group">
+							<div class="panel panel-aligned" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+									<table
+										class="table100 ver1 m-b-110 table-responsive-md table-striped text-center">
+										<tr>
+											<th class="text-center">CryptoCurrency</th>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Bitcoin</td>
+											<td><a href="http://localhost:8086/rates/BTC"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Ripple</td>
+											<td><a href="http://localhost:8086/rates/XRP"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Litecoin</td>
+											<td><a href="http://localhost:8086/rates/LTC"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">Ethereum</td>
+											<td><a href="http://localhost:8086/rates/ETH"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">Eos</td>
+											<td><a href="http://localhost:8086/rates/EOS"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+									</table>
+									<p style="color: #828282">Choose name of the CryptoCurrency
+										which you want to check.</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="tab-4"
+						th:classappend="${blockFull}? 'in active'">
+						<div class="panel-group">
+							<div class="panel panel-aligned" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+									<table
+										class="table100 ver1 m-b-110 table-responsive-md table-striped text-center">
+										<tr>
+											<th class="text-center">Pairs list</th>
+										</tr>
+										<tr>
+											<td class="pt-3-half">List</td>
+											<td><a href="http://localhost:8086/block"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+									</table>
+									<p style="color: #828282">See all available pairs.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="tab-5"
+						th:classappend="${blockPair}? 'in active'">
+						<div class="panel-group">
+							<div class="panel panel-aligned" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+									<table
+										class="table100 ver1 m-b-110 table-responsive-md table-striped text-center">
+										<tr>
+											<th class="text-center">Available Pairs</th>
+										</tr>
+										<tr>
+											<td class="pt-3-half">BTC-USD</td>
+											<td><a href="http://localhost:8086/block/BTC-USD"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">ETH-BTC</td>
+											<td><a href="http://localhost:8086/block/ETH-BTC"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">ABT-BTC</td>
+											<td><a href="http://localhost:8086/block/ABT-BTC"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+
+										<tr>
+											<td class="pt-3-half">BTC-EOS</td>
+											<td><a href="http://localhost:8086/block/BTC-EOS"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">XRP-BTC</td>
+											<td><a href="http://localhost:8086/block/XRP-BTC"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">XRP-ETH</td>
+											<td><a href="http://localhost:8086/block/XRP-ETH"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+										<tr>
+											<td class="pt-3-half">LTC-ETH</td>
+											<td><a href="http://localhost:8086/block/LTC-ETH"
+												class="btn btn-primary">Go!</a></td>
+										</tr>
+									</table>
+									<p style="color: #828282">Choose the name of pair you wish to check.</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--container ends here-->
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" />
+<body>
+	<div class="alert alert-warning" role="alert"><h2 class="my-5">CryptoCurrency Informations</h2>
+	</div>
+	<div class="container">
+	<table class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>CryptoCurrency Name</th>
+				<th>Symbol</th>
+				<th>Rank</th>
+				<th>Price USD</th>
+				<th>Price BTC</th>
+				<th>Market Cap USD</th>
+				<th>Available Supply</th>
+				<th>Total Supply</th>
+				<th>Max Supply</th>
+				<th>Percent Change 1 hour</th>
+				<th>Percent Change 24 hours</th>
+				<th>Percent Change 7 days</th>
+				<th>Last Updated</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${crypto.name}"></td>
+				<td th:text="${crypto.symbol}"></td>
+				<td th:text="${crypto.rank}"></td>
+				<td th:text="${crypto.price_usd}"></td>
+				<td th:text="${crypto.price_btc}"></td>
+				<td th:text="${crypto.market_cap_usd}"></td>
+				<td th:text="${crypto.available_supply}"></td>
+				<td th:text="${crypto.total_supply}"></td>
+				<td th:text="${crypto.max_supply}"></td>
+				<td th:text="${crypto.percent_change_1h}"></td>
+				<td th:text="${crypto.percent_change_24h}"></td>
+				<td th:text="${crypto.percent_change_7d}"></td>
+				<td th:text="${time}"></td>
+			</tr>
+
+		</tbody>
+	</table>
+	<div>
+	<p><b>Send e-mail notifications ?</b></p>
+	<a th:href="@{http://localhost:8085/api/query/prices/crypto/alert/{id}?valueAlert={value}&enableDisable=true(id=${crypto.id},value=${value})}" class="btn btn-primary">Send!</a>
+		
+	<p><b>Back to main page.</b></p>
+	<a th:href="@{/profile}" class="btn btn-primary">Back!</a>
+	</div>
+	<div>Wish to track this currency?
+	<a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></a>
+	</div>
+	<div>Check statistics?
+	<a href="/stats" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span></a>
+	</div>
+	</div>
+		<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

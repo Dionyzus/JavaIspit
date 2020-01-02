@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" />
+<body>
+    <div class="container">
+        <table class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>CryptoCurrency Name</th>
+				<th>Rate USD</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+
+			<tbody>
+			<tr th:each="currency : ${stats}">
+        		<td th:text="${currency.cryptoName}"></td>
+        		<td th:text="${currency.cryptoRateInUSD}"></td>
+        		<td th:text="${currency.time}"></td>
+      		</tr>		
+			</tbody>
+	</table>
+        </div>
+		<div th:replace="common/header :: body-bottom-scripts" />
+		
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" /><body>
+	<div class="alert alert-warning" role="alert"><h2 class="my-5">CryptoCurrency Informations</h2>
+	</div>
+	<div class="container">
+	<br>
+	<b>Base info :</b>
+	<br>
+	<br>
+	<table class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>Result</th>
+				<th>Server Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+        		<td th:text="${base.result}"></td>
+        		<td th:text="${base.serverTime}"></td>
+      		</tr>
+		</tbody>
+	</table>
+	<br>
+	<b>Pair,Base and Quotes</b>
+	<br>
+	<table class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>Pair</th>
+				<th>Symbol</th>
+				<th>Name</th>
+				<th>Is Fiat</th>
+				<th>Symbol</th>
+				<th>Name</th>
+				<th>Is Fiat</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<tr th:each="data : ${base.data}">
+        		<td th:text="${data.pair}"></td>
+        		<td th:text="${data.base.symbol}"></td>
+        		<td th:text="${data.base.name}"></td>
+        		<td th:text="${data.base.isFiat}"></td>
+        		<td th:text="${data.quote.symbol}"></td>
+        		<td th:text="${data.quote.name}"></td>
+        		<td th:text="${data.quote.isFiat}"></td>
+      		</tr>
+		</tbody>
+	</table>
+	<br>
+	<b>Markets :</b>
+	<br>
+	<table class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>Exchange</th>
+				<th>Pair</th>
+				<th>Start Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<tr th:each="market : ${markets}">
+        		<td th:text="${market.exchange}"></td>
+        		<td th:text="${market.pair}"></td>
+        		<td th:text="${market.startDate}"></td>
+      		</tr>		
+		</tbody>
+	</table>
+	</div>
+		<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+
+</html>

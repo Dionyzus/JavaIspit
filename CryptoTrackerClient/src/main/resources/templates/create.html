@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" />
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-md-8">
+			<h2>Add Favorite</h2>
+			<form class="form-signin" th:action="@{/save}" method="post">
+				<div class="form-group">
+					<label for="inputCryptoName">* CryptoCurrency Name : </label> &nbsp; <input
+						required="required" type="text" class="form-control"
+						id="inputCryptoName" name="cryptoName" />
+					<p style="color: #828282">Enter the name of currency you wish to save.</p>
+				</div>
+
+				<div class="form-group">
+					<label for="inputCryptoRateInUSD">* Current Crypto Rate : </label> &nbsp; <input
+						required="required" type="text" class="form-control"
+						id="inputCryptoRateInUSD" name="cryptoRateInUSD" />
+					<p style="color: #828282">Enter the the current price in USD.Notice! It's important
+					to enter current value for the proper statistics!</p>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputTime">* Current Time : </label> &nbsp; <input
+						required="required" type="text" class="form-control"
+						id="inputTime" name="time" />
+					<p style="color: #828282">Enter current date and time.Notice! It's important
+					to enter current date for the proper statistics!</p>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">Add to favorites</button>
+			</form>
+		</div>
+	</div>
+	</div>
+		<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>
